@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentasi UTS - Sistem Ticketing IT</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="progress-bar"></div>
+
+    <div class="presentation-container">
+        <!-- Slide 1: Judul -->
+        <section class="slide active">
+            <div class="card">
+                <div class="header-strip"></div>
+                <div class="role-badge">Tugas UTS - Proyek Perangkat Lunak</div>
+                <h1>Perencanaan Pengembangan Sistem Informasi Ticketing Departemen IT Infrastructure</h1>
+                <p>Implementasi Framework Laravel dan Solusi Mobile Khusus Field Engineer</p>
+                
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="member-name">Wisnu Widya Pradana</div>
+                        <div class="member-role">411231088</div>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-name">Muhammad Jabbar S. R.</div>
+                        <div class="member-role">411231096</div>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-name">Haris Iskandar Muda</div>
+                        <div class="member-role">411231169</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 2: Latar Belakang -->
+        <section class="slide">
+            <div class="card">
+                <div class="header-strip"></div>
+                <h2>Latar Belakang</h2>
+                <ul>
+                    <li>Proses pelaporan insiden infrastruktur IT yang masih bersifat manual dan tidak terstruktur.</li>
+                    <li>Kurangnya transparansi dalam pemantauan status penyelesaian masalah bagi pengguna (Branch).</li>
+                    <li>Kesulitan Departemen IT dalam melakukan monitoring kinerja tim berdasarkan Service Level Agreement (SLA).</li>
+                    <li>Belum tersedianya integrasi data antara aset IT dengan riwayat pemeliharaan perangkat.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Slide 3: Tujuan & Rumusan Masalah -->
+        <section class="slide">
+            <div class="card">
+                <div class="header-strip"></div>
+                <h2>Tujuan Pengembangan</h2>
+                <div class="grid">
+                    <div>
+                        <p><strong>Fokus Utama:</strong></p>
+                        <ul>
+                            <li>Membangun sistem ticketing terintegrasi untuk efisiensi operasional.</li>
+                            <li>Menyediakan fitur monitoring KPI dan SLA secara real-time.</li>
+                            <li>Digitalisasi pencatatan maintenance aset IT di seluruh cabang.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p><strong>Manfaat:</strong></p>
+                        <ul>
+                            <li>Peningkatan transparansi status layanan bagi seluruh stakeholder.</li>
+                            <li>Optimasi alur kerja IT Support melalui aplikasi mobile.</li>
+                            <li>Akurasi data aset dan riwayat perbaikan yang lebih baik.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 4: Use Case Diagram -->
+        <section class="slide">
+            <div class="card">
+                <div class="header-strip"></div>
+                <h2>Perancangan: Use Case Diagram</h2>
+                <div class="grid">
+                    <div>
+                        <ul>
+                            <li><strong>Super Admin:</strong> Manajemen Data Master, Pengguna, dan Laporan KPI.</li>
+                            <li><strong>Branch (Pengguna):</strong> Pengajuan Tiket Baru dan Pemantauan Status.</li>
+                            <li><strong>IT Operation:</strong> Penanganan Tiket, Update Progress, dan Log Maintenance.</li>
+                        </ul>
+                    </div>
+                    <div class="img-container" style="height: 450px; background: none; border: none;">
+                        <img src="assets/usecase.png" alt="Use Case Diagram" class="zoomable" style="height: 100%; width: 100%; object-fit: contain;">
+                        <button class="zoom-btn" title="Zoom In"><i data-lucide="maximize-2"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 5: Entity Relationship Diagram -->
+        <section class="slide">
+            <div class="card">
+                <div class="header-strip"></div>
+                <h2>Struktur Data: ERD</h2>
+                <div class="grid">
+                    <div class="img-container" style="height: 450px; background: none; border: none;">
+                        <img src="assets/erd.png" alt="ERD Diagram" class="zoomable" style="height: 100%; width: 100%; object-fit: contain;">
+                        <button class="zoom-btn" title="Zoom In"><i data-lucide="maximize-2"></i></button>
+                    </div>
+                    <div>
+                        <p><strong>Entitas Utama:</strong></p>
+                        <ul>
+                            <li><strong>Users & Roles:</strong> Manajemen hak akses berbasis peran (RBAC).</li>
+                            <li><strong>Tickets:</strong> Detail insiden, kategori, prioritas, dan status.</li>
+                            <li><strong>SLA:</strong> Kalkulasi tenggat waktu respon dan resolusi otomatis.</li>
+                            <li><strong>Maintenance:</strong> Pencatatan biaya dan detail teknis perbaikan.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 6: Wireframe Antarmuka Web -->
+        <section class="slide">
+            <div class="card">
+                <div class="header-strip"></div>
+                <h2>Perancangan UI: Dashboard Web</h2>
+                <div class="grid">
+                    <div>
+                        <ul>
+                            <li>Statistik ringkasan tiket (Open, In Progress, Resolved).</li>
+                            <li>Tabel monitoring tiket dengan indikator urgensi (SLA).</li>
+                            <li>Fitur filter data berdasarkan cabang dan periode.</li>
+                            <li>Modul ekspor laporan untuk manajemen.</li>
+                        </ul>
+                    </div>
+                    <div class="img-container" style="height: 450px; background: none; border: none;">
+                        <img src="assets/web-ui.png" alt="Web Dashboard UI" class="zoomable" style="height: 100%; width: 100%; object-fit: contain; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+                        <button class="zoom-btn" title="Zoom In"><i data-lucide="maximize-2"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 7: Wireframe Antarmuka Mobile -->
+        <section class="slide">
+            <div class="card">
+                <div class="header-strip"></div>
+                <h2>Perancangan UI: Aplikasi Mobile</h2>
+                <div class="grid">
+                    <div class="img-container" style="height: 450px; background: none; border: none;">
+                        <img src="assets/mobile-ui.png" alt="Mobile App UI" class="zoomable" style="height: 100%; width: 100%; object-fit: contain;">
+                        <button class="zoom-btn" title="Zoom In"><i data-lucide="maximize-2"></i></button>
+                    </div>
+                    <div>
+                        <p><strong>Fitur Engineer Lapangan:</strong></p>
+                        <ul>
+                            <li>Notifikasi real-time untuk tiket yang ditugaskan.</li>
+                            <li>Scan QR Code untuk identifikasi aset secara instan.</li>
+                            <li>Input detail maintenance langsung dari lokasi (Field).</li>
+                            <li>Akses riwayat perbaikan perangkat secara offline.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 8: Pembagian Peran Tim -->
+        <section class="slide">
+            <div class="card">
+                <div class="header-strip"></div>
+                <h2>Pembagian Peran Pengerjaan</h2>
+                <div class="team-grid">
+                    <div class="team-member" style="border-top: 4px solid var(--primary);">
+                        <div class="member-name">Haris Iskandar Muda</div>
+                        <div class="member-role">Backend Developer / Lead</div>
+                        <p style="font-size: 0.85rem; margin-top: 0.5rem;">Bertanggung jawab atas arsitektur Laravel, perancangan Database, dan API Service.</p>
+                    </div>
+                    <div class="team-member" style="border-top: 4px solid var(--primary-light);">
+                        <div class="member-name">Wisnu Widya Pradana</div>
+                        <div class="member-role">Mobile Developer</div>
+                        <p style="font-size: 0.85rem; margin-top: 0.5rem;">Mengembangkan aplikasi mobile menggunakan React Native/Capacitor untuk IT Engineer.</p>
+                    </div>
+                    <div class="team-member" style="border-top: 4px solid var(--success);">
+                        <div class="member-name">M. Jabbar S. R.</div>
+                        <div class="member-role">System Analyst / UI Designer</div>
+                        <p style="font-size: 0.85rem; margin-top: 0.5rem;">Analisis kebutuhan sistem, pembuatan dokumentasi UML, dan perancangan Wireframe.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 9: Penutup -->
+        <section class="slide">
+            <div class="card" style="text-align: center;">
+                <div class="header-strip"></div>
+                <h2>Kesimpulan</h2>
+                <p>Pengembangan sistem ini diharapkan dapat mentransformasi operasional Departemen IT Infrastructure menjadi lebih terukur, transparan, dan efisien melalui integrasi solusi Web dan Mobile.</p>
+                <div style="margin-top: 4rem;">
+                    <h1 style="font-size: 3.5rem;">Terima Kasih</h1>
+                    <p style="color: var(--primary); font-weight: 600;">Sesi Tanya Jawab</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="slide-number">Halaman 1 / 9</div>
+
+        <div class="controls">
+            <button id="prevBtn"><i data-lucide="chevron-left"></i></button>
+            <button id="nextBtn"><i data-lucide="chevron-right"></i></button>
+        </div>
+    </div>
+
+    <!-- Modal for Zoom -->
+    <div id="imageModal" class="modal">
+        <button class="close-modal"><i data-lucide="x" style="width: 48px; height: 48px;"></i></button>
+        <img id="modalImg" src="" alt="Zoomed Image">
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

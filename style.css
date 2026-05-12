@@ -1,0 +1,350 @@
+:root {
+    --primary: #1e40af; /* Deep Blue */
+    --primary-light: #3b82f6;
+    --bg-main: #ffffff;
+    --bg-alt: #f1f5f9;
+    --text-main: #1e293b;
+    --text-muted: #475569;
+    --border: #cbd5e1;
+    --success: #15803d;
+    --accent: #f59e0b;
+    --ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+    background-color: #f1f5f9;
+    color: var(--text-main);
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+}
+
+.presentation-container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at 50% 50%, #f8fafc 0%, #e2e8f0 100%);
+    perspective: 1000px;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.95) translateY(20px);
+    transition: 
+        opacity 0.6s var(--ease), 
+        transform 0.6s var(--ease),
+        visibility 0.6s var(--ease);
+}
+
+.slide.active {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1) translateY(0);
+}
+
+.card {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 6rem;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    width: 90vw;
+    height: 80vh;
+    max-width: 1600px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 25px 30px -5px rgba(0, 0, 0, 0.15);
+}
+
+.header-strip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 12px;
+    background: var(--primary);
+    border-radius: 16px 16px 0 0;
+}
+
+h1 {
+    font-size: 5rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 2.5rem;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+h2 {
+    font-size: 3.5rem;
+    color: var(--primary);
+    margin-bottom: 3rem;
+    font-weight: 800;
+    border-left: 12px solid var(--primary);
+    padding-left: 2rem;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    opacity: 0;
+    transform: translateX(-30px);
+}
+
+p {
+    font-size: 2rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+ul li {
+    list-style: none; /* Menghilangkan bullet point bawaan */
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    padding-left: 2.5rem;
+    position: relative;
+    color: var(--text-main);
+    line-height: 1.4;
+    opacity: 0;
+    transform: translateX(20px);
+}
+
+/* Staggered Animations when Slide is Active */
+.slide.active h1 { animation: slideUp 0.8s var(--ease) forwards 0.2s; }
+.slide.active h2 { animation: slideRight 0.8s var(--ease) forwards 0.2s; }
+.slide.active p { animation: slideUp 0.8s var(--ease) forwards 0.4s; }
+
+.slide.active li:nth-child(1) { animation: slideRight 0.6s var(--ease) forwards 0.5s; }
+.slide.active li:nth-child(2) { animation: slideRight 0.6s var(--ease) forwards 0.6s; }
+.slide.active li:nth-child(3) { animation: slideRight 0.6s var(--ease) forwards 0.7s; }
+.slide.active li:nth-child(4) { animation: slideRight 0.6s var(--ease) forwards 0.8s; }
+
+.slide.active .img-container { animation: zoomIn 1s var(--ease) forwards 0.6s; opacity: 0; }
+.slide.active .team-member { animation: slideUp 0.8s var(--ease) forwards; opacity: 0; }
+.slide.active .team-member:nth-child(1) { animation-delay: 0.5s; }
+.slide.active .team-member:nth-child(2) { animation-delay: 0.6s; }
+.slide.active .team-member:nth-child(3) { animation-delay: 0.7s; }
+
+@keyframes slideUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideRight {
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes zoomIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+li::before {
+    content: '—';
+    color: var(--primary);
+    position: absolute;
+    left: 0;
+    font-weight: 900;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5rem;
+    width: 100%;
+    align-items: start;
+}
+
+.controls {
+    position: fixed;
+    bottom: 2rem;
+    right: 3rem;
+    display: flex;
+    gap: 1rem;
+    z-index: 100;
+}
+
+button {
+    background: #ffffff;
+    border: 2px solid var(--border);
+    color: var(--primary);
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+button:hover {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+    transform: translateY(-2px);
+}
+
+.progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 6px;
+    background: var(--primary-light);
+    transition: width 0.3s ease;
+    z-index: 101;
+}
+
+.slide-number {
+    position: fixed;
+    bottom: 2.5rem;
+    left: 3rem;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.role-badge {
+    display: inline-block;
+    background: var(--bg-alt);
+    color: var(--primary);
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    border: 2px solid var(--border);
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.team-member {
+    padding: 2.5rem;
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    background: #fcfcfc;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.member-name {
+    font-weight: 800;
+    font-size: 1.6rem;
+}
+
+.member-role {
+    font-size: 1.2rem;
+    color: var(--primary);
+    margin-top: 0.5rem;
+    font-weight: 600;
+}
+
+.img-container {
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    background: #f8fafc;
+    width: 100%;
+    position: relative;
+}
+
+.zoom-btn {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    background: var(--primary);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.zoom-btn:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Modal Lightbox */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+    padding: 2rem;
+    cursor: zoom-out;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal.active {
+    display: flex;
+    opacity: 1;
+}
+
+.modal img {
+    max-width: 95%;
+    max-height: 95%;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 0 50px rgba(0,0,0,0.5);
+    transform: scale(0.9);
+    transition: transform 0.4s var(--ease);
+}
+
+.modal.active img {
+    transform: scale(1);
+}
+
+.close-modal {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    color: white;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 1rem;
+}
