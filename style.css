@@ -122,7 +122,7 @@ p {
 }
 
 ul li {
-    list-style: none; /* Menghilangkan bullet point bawaan */
+    list-style: none;
     font-size: 1.8rem;
     margin-bottom: 1.5rem;
     padding-left: 2.5rem;
@@ -347,4 +347,42 @@ button:hover {
     background: none;
     border: none;
     padding: 1rem;
+}
+
+/* --- Responsive Design --- */
+
+/* Laptops / Tablets (Small Desktops) */
+@media (max-width: 1280px) {
+    h1 { font-size: 3.5rem; }
+    h2 { font-size: 2.5rem; }
+    p { font-size: 1.4rem; }
+    li { font-size: 1.3rem; }
+    .card { padding: 4rem; }
+    .grid { gap: 3rem; }
+}
+
+/* Tablets (Portrait) */
+@media (max-width: 1024px) {
+    h1 { font-size: 3rem; }
+    h2 { font-size: 2.2rem; }
+    .grid { grid-template-columns: 1fr; gap: 2rem; }
+    .img-container { height: 300px !important; }
+    .card { height: auto; min-height: 80vh; padding: 3rem; }
+    .team-grid { grid-template-columns: 1fr; }
+    .presentation-container { overflow-y: auto; align-items: flex-start; padding-top: 2rem; padding-bottom: 6rem; }
+    .slide { position: relative; height: auto; min-height: 100vh; padding: 1rem; }
+    .slide:not(.active) { display: none; }
+}
+
+/* Phones */
+@media (max-width: 640px) {
+    h1 { font-size: 2.2rem; }
+    h2 { font-size: 1.8rem; border-left-width: 8px; padding-left: 1rem; }
+    p { font-size: 1.1rem; }
+    li { font-size: 1rem; padding-left: 1.5rem; }
+    .card { padding: 2rem; width: 95vw; }
+    .role-badge { font-size: 0.9rem; padding: 0.4rem 0.8rem; }
+    .controls button { width: 45px; height: 45px; }
+    .slide-number { bottom: 1.5rem; left: 1.5rem; font-size: 0.9rem; }
+    .controls { bottom: 1rem; right: 1.5rem; }
 }
