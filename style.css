@@ -237,6 +237,30 @@ button:hover {
     object-fit: contain;
 }
 
+.zoom-btn {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    background: var(--primary);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+    border: none;
+    z-index: 10;
+}
+
+.zoom-btn:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
 /* Modal Lightbox */
 .modal {
     position: fixed;
